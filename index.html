@@ -113,7 +113,9 @@
 
     .shell {
       display: flex;
-      min-height: 100vh
+      min-height: 100vh;
+      max-width: calc(var(--sidebar-w) + var(--content-max));
+      margin: 0 auto
     }
 
     /* SIDEBAR */
@@ -122,10 +124,10 @@
       flex-shrink: 0;
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border);
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      bottom: 0;
+      height: 100vh;
+      align-self: flex-start;
       display: flex;
       flex-direction: column;
       z-index: 200;
@@ -434,7 +436,6 @@
 
     /* MAIN */
     .main-area {
-      margin-left: var(--sidebar-w);
       flex: 1;
       min-width: 0;
       display: flex;
@@ -1906,6 +1907,11 @@
       }
 
       .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: auto;
         transform: translateX(-100%);
         width: 252px
       }
